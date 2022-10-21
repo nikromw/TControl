@@ -7,7 +7,6 @@ C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\bin\Debug\netcoreapp3.1\Auth
 C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\bin\Debug\netcoreapp3.1\Auth.Api.dll
 C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\bin\Debug\netcoreapp3.1\Auth.Api.pdb
 C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\bin\Debug\netcoreapp3.1\Auth.Api.Views.dll
-C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\bin\Debug\netcoreapp3.1\Auth.Api.Views.pdb
 C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\obj\Debug\netcoreapp3.1\Auth.Api.csproj.AssemblyReference.cache
 C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\obj\Debug\netcoreapp3.1\Auth.Api.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\obj\Debug\netcoreapp3.1\Auth.Api.AssemblyInfoInputs.cache
@@ -20,3 +19,11 @@ C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\obj\Debug\netcoreapp3.1\Auth
 C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\obj\Debug\netcoreapp3.1\Auth.Api.pdb
 C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\obj\Debug\netcoreapp3.1\Auth.Api.genruntimeconfig.cache
 C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\obj\Debug\netcoreapp3.1\Auth.Api.csproj.CopyComplete
+C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\bin\Debug\netcoreapp3.1\Common.dll
+C:\Users\nikro\Desktop\PetProject\TControl\Auth.Api\bin\Debug\netcoreapp3.1\Common.pdb
