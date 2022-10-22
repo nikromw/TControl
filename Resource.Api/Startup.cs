@@ -73,6 +73,7 @@ namespace Resource.Api
                 app.UseDeveloperExceptionPage();
             }
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseCors();
 
