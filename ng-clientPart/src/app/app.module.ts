@@ -23,7 +23,8 @@ export function tokenGetter(){
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +43,7 @@ export function tokenGetter(){
       }
     })
   ],
-  exports: [HomeComponent],
+  exports: [HomeComponent, OrdersComponent],
   providers: [{
     provide: AUTH_API_URL,
     useValue: environment.authApi

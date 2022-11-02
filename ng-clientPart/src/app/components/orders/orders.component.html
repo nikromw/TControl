@@ -11,33 +11,12 @@
         </head>
         <tbody>
             <ng-container >
-            <tr *ngFor="let book of books">
-                <td>{{book.id}}</td>
-                <td>{{book.author}}</td>
-                <td>{{book.title}}</td>
-                <td>{{book.price}}</td>
+            <tr *ngFor="let order of orders">
+                <td>{{order.id}}</td>
+                <td>{{order.author}}</td>
+                <td>{{order.title}}</td>
+                <td>{{order.price}}</td>
             </tr></ng-container>
     </tbody>
     </table>
-
-
-<!-- 
-    <mat-table [dataSource]="books">
-        <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-            <mat-cell *matCellDef="let book">${{book.id}}</mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="author">
-            <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-            <mat-cell *matCellDef="let book">${{book.author}}</mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="title">
-            <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-            <mat-cell *matCellDef="let book">${{book.title}}</mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="price">
-            <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-            <mat-cell *matCellDef="let book">${{book.price}}</mat-cell>
-        </ng-container>
-      </mat-table> -->
 </div> 

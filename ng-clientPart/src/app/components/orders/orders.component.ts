@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from 'src/app/models/book';
+import { BookstoreService } from 'src/app/services/bookstore.service';
 
 @Component({
   selector: 'app-orders',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersComponent implements OnInit {
 
-  constructor() { }
+orders: Book[] =[]
+columns = ['id','author','title', 'price']
+
+  constructor(private bs: BookstoreService) { }
 
   ngOnInit(): void {
+    this.bs.getOrders()
+    .subscribe(res =>{
+      this.orders = res;
+    })
   }
 
 }
