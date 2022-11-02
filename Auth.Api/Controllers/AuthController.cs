@@ -41,29 +41,20 @@ namespace Auth.Api.Controllers
         {
             var user = AuthenticateUser(request.Email, request.Password);
 
+            if (user == null)
+                return Unauthorized();
 
-            if (user != null)
-            {
-                var token = GenerateJWT(user);
+            var token = GenerateJWT(user);
 
-                return Ok(new
-                {
-                    access_token = token
-                });
-            }
-
-            return Unauthorized();
+            return Ok(new {access_token = token});
         }
 
         private Account AuthenticateUser(string email, string password)
-        {
-            return Accounts.SingleOrDefault(x => x.EMail == email && x.Password == password);
-        }
+            =>  Accounts.SingleOrDefault(x => x.EMail == email && x.Password == password);
 
         private string GenerateJWT(Account user)
         {
             var authParams = authOptions.Value;
-
             var securityKey = authParams.GetSymmetricSecurityKey();
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
@@ -71,13 +62,10 @@ namespace Auth.Api.Controllers
             {
                 new Claim(JwtRegisteredClaimNames.Email, user.EMail),
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString())
-
             };
 
             foreach(var role in user.Roles)
-            {
                 claims.Add(new Claim("role", role.ToString()));
-            }
 
             var token = new JwtSecurityToken(authParams.Issuer,
                 authParams.Audience,
