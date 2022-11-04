@@ -14,5 +14,7 @@ namespace WriteModel
 
        public DbSet<LittleNote> LittleNotes { get; set; }
        public DbSet<Account> Accounts { get; set; }
+        //qwe
+
     }
 }
