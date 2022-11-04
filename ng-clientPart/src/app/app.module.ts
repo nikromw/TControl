@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LittleNoticeComponent } from './components/little-notice/little-notice.component';
 import { BaseMenuComponent } from './components/base-menu/base-menu.component';
+import { AuthComponent } from './components/auth/auth.component';
 export function tokenGetter(){
   return localStorage.getItem(ACCESS_TOKEN_KEY);
 }
@@ -28,7 +29,8 @@ export function tokenGetter(){
     HomeComponent,
     OrdersComponent,
     LittleNoticeComponent,
-    BaseMenuComponent
+    BaseMenuComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
