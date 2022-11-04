@@ -1,6 +1,7 @@
 ﻿using Auth.Api.Models;
 using Common;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters.Xml;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
@@ -39,7 +40,7 @@ namespace Auth.Api.Controllers
         [HttpPost]
         public IActionResult Login([FromBody] Login request)
         {
-            var user = AuthenticateUser(request.Email, request.Password);
+                var user = AuthenticateUser(request.Email, request.Password);
 
             if (user == null)
                 return Unauthorized();

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "nzghAEsad4/Q4077Up1iZc8htpkKXLlgeDpvOYD9nNX5hUieAsKtOhMeM1t6VSE1F2Jb0VfSNm/8QyAyD3QTcQ==",
+  "dgSpecHash": "vCibF4GP1nB+NTSictbaTcEYHmgWe40YZ+bcisxkzBp0KNM3tBcc1YbBWQkGU204u1V2/9TK84gHQ21fGa/2rg==",
   "success": true,
   "projectFilePath": "C:\\Users\\nikro\\Desktop\\PetProject\\TControl\\Auth.Api\\Auth.Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\nikro\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\nikro\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\nikro\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.24.0\\microsoft.identitymodel.abstractions.6.24.0.nupkg.sha512",
     "C:\\Users\\nikro\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.24.0\\microsoft.identitymodel.jsonwebtokens.6.24.0.nupkg.sha512",
@@ -12,6 +13,7 @@
     "C:\\Users\\nikro\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\nikro\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\nikro\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.24.0\\system.identitymodel.tokens.jwt.6.24.0.nupkg.sha512",
+    "C:\\Users\\nikro\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512",
     "C:\\Users\\nikro\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
     "C:\\Users\\nikro\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
     "C:\\Users\\nikro\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",

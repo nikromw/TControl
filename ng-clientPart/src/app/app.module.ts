@@ -16,6 +16,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { LittleNoticeComponent } from './components/little-notice/little-notice.component';
+import { BaseMenuComponent } from './components/base-menu/base-menu.component';
 export function tokenGetter(){
   return localStorage.getItem(ACCESS_TOKEN_KEY);
 }
@@ -24,7 +26,9 @@ export function tokenGetter(){
   declarations: [
     AppComponent,
     HomeComponent,
-    OrdersComponent
+    OrdersComponent,
+    LittleNoticeComponent,
+    BaseMenuComponent
   ],
   imports: [
     BrowserModule,

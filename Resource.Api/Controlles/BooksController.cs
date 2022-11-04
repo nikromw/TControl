@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Resource.Api.Models;
+using WriteModel;
 
 namespace Resource.Api.Controlles
 {

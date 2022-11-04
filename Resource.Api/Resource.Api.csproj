@@ -10,6 +10,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\Database\ReadModel.csproj" />
+    <ProjectReference Include="..\WriteModel\WriteModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
