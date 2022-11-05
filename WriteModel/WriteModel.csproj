@@ -6,11 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.30" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Auth.Api\Auth.Api.csproj" />
     <ProjectReference Include="..\Database\ReadModel.csproj" />
   </ItemGroup>
 

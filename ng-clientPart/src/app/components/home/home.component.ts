@@ -8,6 +8,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { CreateNoticeComponent } from '../create-notice/create-notice.component';
 import { MatDialog } from '@angular/material/dialog';
+import { NoteService } from 'src/app/services/note.service';
+import { Note } from 'src/app/models/note';
 
 
 
@@ -18,11 +20,12 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class HomeComponent implements OnInit {
 books: Book[]=[];
+note: Note = new Note;
 columns =['id','author', 'title', 'price']
 closeResult = '';
 title: string;
 body: string
-  constructor(private bs: BookstoreService ,public dialog: MatDialog) { }
+  constructor(private bs: BookstoreService ,public dialog: MatDialog , public noteService: NoteService) { }
 
   ngOnInit(): void {
     this.bs.getCatalog()
@@ -38,10 +41,12 @@ body: string
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.title = result;
-      this.body = result;
+      this.note.title = result[0];
+      this.note.body = result[1]
+      this.noteService.creteNote(this.note);
     });
   }
+
+
 
 }

@@ -2,6 +2,7 @@
 using Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters.Xml;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
@@ -10,6 +11,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using WriteModel;
 using JwtRegisteredClaimNames = System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames;
 
 namespace Auth.Api.Controllers
@@ -32,7 +34,7 @@ namespace Auth.Api.Controllers
                 Id =  Guid.Parse("600AE514-90BE-4F18-890E-45EBD429E2BF"),
                 EMail = "test@mail.ru",
                 Password = "test_pass",
-                Roles = new Role[]{ Role.Admin}
+                Roles =  Role.Admin
             }
         };
 
@@ -40,6 +42,9 @@ namespace Auth.Api.Controllers
         [HttpPost]
         public IActionResult Login([FromBody] Login request)
         {
+           
+
+
                 var user = AuthenticateUser(request.Email, request.Password);
 
             if (user == null)
@@ -65,8 +70,7 @@ namespace Auth.Api.Controllers
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString())
             };
 
-            foreach(var role in user.Roles)
-                claims.Add(new Claim("role", role.ToString()));
+                claims.Add(new Claim("role", user.Roles.ToString()));
 
             var token = new JwtSecurityToken(authParams.Issuer,
                 authParams.Audience,

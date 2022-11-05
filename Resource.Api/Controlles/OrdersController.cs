@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Auth.Api.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Resource.Api.Models;
 using System;
 using System.Linq;
 using System.Security.Claims;
+using WriteModel;
 
 namespace Resource.Api.Controlles
 {
@@ -12,11 +15,14 @@ namespace Resource.Api.Controlles
     public class OrdersController : ControllerBase
     {
         private readonly BookStore store;
+        private readonly WRContext _wrContext;
+
         private Guid UserId => Guid.Parse(User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
 
-        public OrdersController(BookStore strore)
+        public OrdersController(BookStore strore , WRContext wRContext)
         {
             this.store = strore;
+            _wrContext = wRContext;
         }
 
         [HttpGet]
