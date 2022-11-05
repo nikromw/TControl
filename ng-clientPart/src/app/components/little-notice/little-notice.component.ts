@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-little-notice',
+  selector: 'l-notice',
   templateUrl: './little-notice.component.html',
   styleUrls: ['./little-notice.component.scss']
 })

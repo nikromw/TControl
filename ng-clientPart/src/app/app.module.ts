@@ -19,6 +19,9 @@ import { CommonModule } from '@angular/common';
 import { LittleNoticeComponent } from './components/little-notice/little-notice.component';
 import { BaseMenuComponent } from './components/base-menu/base-menu.component';
 import { AuthComponent } from './components/auth/auth.component';
+import { CreateNoticeComponent } from './components/create-notice/create-notice.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { Overlay } from '@angular/cdk/overlay';
 export function tokenGetter(){
   return localStorage.getItem(ACCESS_TOKEN_KEY);
 }
@@ -30,7 +33,8 @@ export function tokenGetter(){
     OrdersComponent,
     LittleNoticeComponent,
     BaseMenuComponent,
-    AuthComponent
+    AuthComponent,
+    CreateNoticeComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,8 @@ export function tokenGetter(){
     MatCardModule,
     MatFormFieldModule,
     FormsModule,
-    MatInputModule,
+    MatDialogModule,
+    MatInputModule, 
     JwtModule.forRoot({
       config:{
         tokenGetter, 
@@ -50,7 +55,9 @@ export function tokenGetter(){
     })
   ],
   exports: [HomeComponent, OrdersComponent],
-  providers: [{
+  providers: [
+    MatDialog,
+    Overlay,{
     provide: AUTH_API_URL,
     useValue: environment.authApi
   },
