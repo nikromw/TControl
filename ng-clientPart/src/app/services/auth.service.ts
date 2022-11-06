@@ -6,6 +6,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 import { tap } from "rxjs";
 import { Observable } from "rxjs";
 import { AUTH_API_URL } from "../app-injection-tokens";
+import { Auth } from "../models/auth";
 import { Token } from "../models/token";
 
 
@@ -28,6 +29,12 @@ export class AuthService {
               tap(token => {
                   localStorage.setItem(ACCESS_TOKEN_KEY, token.access_token);
               }))
+  }
+
+  registration(auth: Auth){
+    var body = JSON.stringify(auth);
+    const headers = { 'content-type': 'application/json'}  ;
+    return this.http.post(`${this.apiUrl}api/auth/regUser`, auth,  {headers});
   }
 
   isAuthenticated(): boolean {
