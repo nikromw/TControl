@@ -21,10 +21,12 @@ namespace Auth.Api.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IOptions<AuthOptions> authOptions;
+        private WRContext _dbContext;
 
-        public AuthController(IOptions<AuthOptions> authOptions)
+        public AuthController(IOptions<AuthOptions> authOptions, WRContext wRContext)
         {
             this.authOptions = authOptions;
+            _dbContext = wRContext;
         }
 
         private List<Account> Accounts = new List<Account>()
@@ -42,6 +44,18 @@ namespace Auth.Api.Controllers
         [HttpPost]
         public IActionResult Registration([FromBody] Login request)
         {
+            if (_dbContext.Accounts.Where(x => x.EMail == request.Email).Any())
+                return StatusCode(403 , "Такой пользователь уже зарегестрирован.");
+
+            _dbContext.Accounts.Add(new Account()
+            {
+                EMail = request.Email,
+                Password = request.Password,
+                Id = Guid.NewGuid()
+            });
+
+            _dbContext.SaveChanges();
+
             return Ok();
         }
 
