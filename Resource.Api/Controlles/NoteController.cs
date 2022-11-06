@@ -31,7 +31,7 @@ namespace Resource.Api.Controlles
                     Title = note.Title,
                     Body = note.Body,
                     AccountId = Guid.Parse("0ED16120-3AB8-4582-8475-EC5B5A0BF540")
-                }) ;
+                });
 
                 _dbContext.SaveChanges();
 

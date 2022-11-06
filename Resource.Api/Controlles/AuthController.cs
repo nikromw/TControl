@@ -38,14 +38,18 @@ namespace Auth.Api.Controllers
             }
         };
 
+        [Route("regUser")]
+        [HttpPost]
+        public IActionResult Registration([FromBody] Login request)
+        {
+            return Ok();
+        }
+
         [Route("login")]
         [HttpPost]
         public IActionResult Login([FromBody] Login request)
         {
-           
-
-
-                var user = AuthenticateUser(request.Email, request.Password);
+            var user = AuthenticateUser(request.Email, request.Password);
 
             if (user == null)
                 return Unauthorized();

@@ -28,10 +28,13 @@ namespace Resource.Api
         public void ConfigureServices(IServiceCollection services)
         {
             var conncetionString = config.GetConnectionString("DefaultConnection"); 
-            services.AddDbContext<WRContext>(options =>
-                options.UseSqlServer(conncetionString));
+
+            services.AddDbContext<WRContext>(options => options.UseSqlServer(conncetionString));
             services.AddControllers();
+
             var authOptions = config.GetSection("Auth").Get<AuthOptions>();
+
+            services.Configure<AuthOptions>(config.GetSection("Auth"));
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
