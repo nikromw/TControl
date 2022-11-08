@@ -1,11 +1,11 @@
 <div>
   <div class="topnav">
-    <a [routerLink]="['']" routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}">Bookstore</a>
+    <a [routerLink]="['']" routerLinkActive='active' *ngIf='isLoggedIn' [routerLinkActiveOptions]="{exact: true}">Bookstore</a>
     <a [routerLink]="['/orders']" routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
       *ngIf='isLoggedIn'>Orders</a>
         <button mat-flat-button color="primary" (click)='logout()'>Logout</button>
   </div>
 
-  <app-home></app-home>
+  <app-home *ngIf='isLoggedIn'></app-home>
   <router-outlet></router-outlet>
 </div>

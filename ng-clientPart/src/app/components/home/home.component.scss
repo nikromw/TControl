@@ -1,0 +1,19 @@
+.main-notice-container{
+    padding: 15px;
+}
+
+.create-notice{
+    height: 200px;
+    width: 150px;
+    background-image: url("../../static/plus.png");
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+    background-position: center;
+}
+
+.create-notice:hover{
+    background-color: #f7f7fc;
+    background-size: 65px 65px;
+    height: 210px;
+    width: 160px;
+}
