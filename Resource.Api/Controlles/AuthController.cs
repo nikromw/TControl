@@ -29,17 +29,6 @@ namespace Auth.Api.Controllers
             _dbContext = wRContext;
         }
 
-        private List<Account> Accounts = new List<Account>()
-        {
-            new Account()
-            {
-                Id =  Guid.Parse("600AE514-90BE-4F18-890E-45EBD429E2BF"),
-                EMail = "test@mail.ru",
-                Password = "test_pass",
-                Roles =  Role.Admin
-            }
-        };
-
         [Route("regUser")]
         [HttpPost]
         public IActionResult Registration([FromBody] Login request)
@@ -74,7 +63,7 @@ namespace Auth.Api.Controllers
         }
 
         private Account AuthenticateUser(string email, string password)
-            =>  Accounts.SingleOrDefault(x => x.EMail == email && x.Password == password);
+            => _dbContext.Accounts.SingleOrDefault(x => x.EMail == email && x.Password == password);
 
         private string GenerateJWT(Account user)
         {

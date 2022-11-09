@@ -1,5 +1,7 @@
 .main-notice-container{
     padding: 15px;
+    width: 87%;
+    display: flex;
 }
 
 .create-notice{
@@ -16,4 +18,13 @@
     background-size: 65px 65px;
     height: 210px;
     width: 160px;
+}
+
+
+.note-container{
+    display: flex;
+    height: auto;
+    width: 90%;
+    overflow: auto;
+    flex-wrap: wrap;
 }

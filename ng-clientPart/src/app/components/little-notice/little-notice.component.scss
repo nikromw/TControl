@@ -1,0 +1,30 @@
+.little-note{
+    background-color: brown;
+    height: 220px;
+    width: 170px;
+    margin: 7px;
+    padding: 7px;
+}
+
+.little-note:hover{
+    background-color:chartreuse;
+    background-size: 65px 65px;
+    height: 210px;
+    width: 160px;
+}
+
+.note-title{
+display: flex;
+justify-content: space-between;
+}
+
+.edit-btn{
+    margin: 0;
+    padding:0;
+}
+
+.note-body{
+    padding-top: 10px;
+    height: 80%;
+    overflow: hidden;
+}
