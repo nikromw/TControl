@@ -59,6 +59,8 @@ namespace Auth.Api.Controllers
 
             var token = GenerateJWT(user);
 
+            WRContext.Account = user;
+
             return Ok(new {access_token = token});
         }
 

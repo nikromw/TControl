@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Resource.Api.Models;
 using System;
+using System.Linq;
 using WriteModel;
 
 namespace Resource.Api.Controlles
@@ -18,7 +19,7 @@ namespace Resource.Api.Controlles
 
         [HttpGet]
         [Route("noteList")]
-        public IActionResult GetNoteList() =>  Ok();
+        public IActionResult GetNoteList() => Ok(_dbContext.LittleNotes.Where(x => x.AccountId == WRContext.Account.Id));
 
         [HttpPost]
         [Route("createNote")]
@@ -30,7 +31,7 @@ namespace Resource.Api.Controlles
                 {
                     Title = note.Title,
                     Body = note.Body,
-                    AccountId = Guid.Parse("0ED16120-3AB8-4582-8475-EC5B5A0BF540")
+                    AccountId = WRContext.Account.Id
                 });
 
                 _dbContext.SaveChanges();
