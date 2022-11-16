@@ -21,4 +21,8 @@ export class NoteService {
       console.log(response);
     });
   }
+
+  getList():Observable<Note[]>{
+  return this.http.get<Note[]>(`${this.baseApiUrl}Note/noteList`)
+  }
 }

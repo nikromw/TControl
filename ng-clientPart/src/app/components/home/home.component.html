@@ -1,20 +1,11 @@
 <div style="display: flex; justify-content: space-between; ">
     <div>123</div>
-    <div class="main-notice-container" >
+    <div class="main-notice-container">
         <div class="create-notice" (click)="createNoticeDialog()">
         </div>
-        <div  class="note-container">
-        <l-notice></l-notice>
-        <l-notice></l-notice>
-        <l-notice></l-notice>
-        <l-notice></l-notice>
-        <l-notice></l-notice>
-        <l-notice></l-notice>
-        <l-notice></l-notice>
-        <l-notice></l-notice>
-        <l-notice></l-notice>
-        <l-notice></l-notice>
-        <l-notice></l-notice>
-    </div>
+        <div class="note-container" *ngFor="let note of notes">
+
+            <l-notice></l-notice>
+        </div>
     </div>
 </div>

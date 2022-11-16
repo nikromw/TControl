@@ -21,6 +21,7 @@ import { Note } from 'src/app/models/note';
 export class HomeComponent implements OnInit {
 books: Book[]=[];
 note: Note = new Note;
+notes: Note[]=[];
 columns =['id','author', 'title', 'price']
 closeResult = '';
 title: string;
@@ -28,9 +29,9 @@ body: string
   constructor(private bs: BookstoreService ,public dialog: MatDialog , public noteService: NoteService) { }
 
   ngOnInit(): void {
-    this.bs.getCatalog()
+    this.noteService.getList()
     .subscribe(res =>{
-      this.books = res
+      this.notes = res
     })
   }
 
@@ -46,7 +47,6 @@ body: string
       this.noteService.creteNote(this.note);
     });
   }
-
 
 
 }
