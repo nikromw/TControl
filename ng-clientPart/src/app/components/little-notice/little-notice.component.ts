@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'l-notice',
@@ -9,8 +9,8 @@ export class LittleNoticeComponent implements OnInit {
 
   constructor( ) { }
 
-  title: string ;
-  body : string ;
+  @Input() title: string ;
+  @Input() body : string ;
   
   ngOnInit(): void {
   }

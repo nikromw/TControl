@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Auth.Api.Models
 {
-    public class Account : IdentityUser
+    public class Account 
     {
         public Guid Id { get; set; }
         public string EMail { get; set; }

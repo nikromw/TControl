@@ -5,7 +5,7 @@
         </div>
         <div class="note-container" *ngFor="let note of notes">
 
-            <l-notice></l-notice>
+            <l-notice [title]="note.title" [body]="note.body"></l-notice>
         </div>
     </div>
 </div>
