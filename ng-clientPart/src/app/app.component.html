@@ -1,9 +1,9 @@
 <div>
   <div class="topnav">
-    <a [routerLink]="['']" routerLinkActive='active' *ngIf='isLoggedIn' [routerLinkActiveOptions]="{exact: true}">Bookstore</a>
-    <a [routerLink]="['/orders']" routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"
-      *ngIf='isLoggedIn'>Orders</a>
-        <button mat-flat-button color="primary" (click)='logout()'>Logout</button>
+    <div class="header">
+      <div>Title</div>
+      <div><app-profile class="profile_mini"></app-profile></div>
+    </div>
   </div>
 
   <app-home *ngIf='isLoggedIn'></app-home>

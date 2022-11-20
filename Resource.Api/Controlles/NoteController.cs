@@ -43,5 +43,28 @@ namespace Resource.Api.Controlles
 
             return Ok();
         }
+
+        [HttpPost]
+        [Route("deleteNote")]
+        public IActionResult DeleteNote([FromBody] LittleNote note)
+        {
+            try
+            {
+
+                var noteToDelete = _dbContext.LittleNotes.FirstOrDefault(x => x.Id == note.Id);
+
+                if (noteToDelete != null)
+                    _dbContext.LittleNotes.Remove(noteToDelete);
+
+                _dbContext.SaveChanges();
+
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+
+            return Ok();
+        }
     }
 }

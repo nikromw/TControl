@@ -22,6 +22,9 @@ import { AuthComponent } from './components/auth/auth.component';
 import { CreateNoticeComponent } from './components/create-notice/create-notice.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Overlay } from '@angular/cdk/overlay';
+import { ProfileComponent } from './components/profile/profile.component';
+import { LeftMenuComponent } from './components/left-menu/left-menu.component';
+import { ResumeComponent } from './components/resume/resume.component';
 export function tokenGetter(){
   return localStorage.getItem(ACCESS_TOKEN_KEY);
 }
@@ -35,6 +38,9 @@ export function tokenGetter(){
     BaseMenuComponent,
     AuthComponent,
     CreateNoticeComponent,
+    ProfileComponent,
+    LeftMenuComponent,
+    ResumeComponent,
   ],
   imports: [
     BrowserModule,

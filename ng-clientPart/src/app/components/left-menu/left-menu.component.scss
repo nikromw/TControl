@@ -1,0 +1,20 @@
+.left-menu{
+    margin: auto;
+    margin: 15px;
+    margin-top: 50px;
+}
+
+.left-menu > div{
+    margin-bottom: 5px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.left-menu > div:hover{
+    animation-name: left-menu-color;
+    animation-duration: 1s;
+}
+
+@keyframes left-menu-color {
+    to {background-color: rgb(255, 221, 135);}
+}
