@@ -1,11 +1,6 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { BookstoreService } from 'src/app/services/bookstore.service';
-import {MatTableModule} from '@angular/material/table';
-import {MatCardModule} from '@angular/material/card';
-import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { CreateNoticeComponent } from '../create-notice/create-notice.component';
 import { MatDialog } from '@angular/material/dialog';
 import { NoteService } from 'src/app/services/note.service';
@@ -40,7 +35,8 @@ filePath: string;
 
   createNoticeDialog(): void {
     const dialogRef = this.dialog.open(CreateNoticeComponent, {
-      width: '250px',
+      width: '400px',
+      height: '500px',
       data: {title : this.title , body: this.body , filePath: this.filePath}
     });
 

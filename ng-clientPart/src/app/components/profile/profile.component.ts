@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   constructor(private as: AuthService) { }
 
   ngOnInit(): void {
+    console.log("qwe");
   }
 
   logOut(){

@@ -25,6 +25,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LeftMenuComponent } from './components/left-menu/left-menu.component';
 import { ResumeComponent } from './components/resume/resume.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 export function tokenGetter(){
   return localStorage.getItem(ACCESS_TOKEN_KEY);
 }
@@ -41,6 +42,7 @@ export function tokenGetter(){
     ProfileComponent,
     LeftMenuComponent,
     ResumeComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,

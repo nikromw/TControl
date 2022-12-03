@@ -25,6 +25,12 @@
 
 }
 
+.title{
+    color: white;
+    font-size: large;
+    font-weight: 500;
+}
+
 .example-form-field{
     margin-right: 20px;
 }
@@ -34,6 +40,13 @@
  justify-content: space-between;
 }
 
-.profile_mini{
-    
+.profile-mini{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.profile-mini-color-change:hover{ 
+    -webkit-filter:  brightness(1.5); 
+    filter: brightness(1.5); 
 }

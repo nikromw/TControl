@@ -1,0 +1,25 @@
+<div class="login-form">
+    <div class="example-form-field mail-input">
+      <div>Email</div>
+      <input type="email" matInput placeholder="user@mail.ru" #email>
+    </div>
+    <div class="example-form-field pass-input">
+      <div>Password</div>
+      <input type="password" matInput #password>
+    </div>
+    <div class="example-form-field pass-input">
+      <div>Name</div>
+      <input type="password" matInput #name>
+    </div>
+    <div class="example-form-field pass-input">
+      <div>Secondname</div>
+      <input type="password" matInput #secName>
+    </div>
+    <div class="example-form-field pass-input">
+        <div>Load profile photo</div>
+        <input type="password" matInput #photo>
+      </div>
+    <div class="login-button">
+    <button  mat-flat-button color="primary" (click)='registration(email.value, password.value, name.value, secName.value, photo.value)'>Login</button>
+  </div>
+  </div>

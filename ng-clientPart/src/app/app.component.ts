@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 
 @Component({
@@ -15,8 +16,12 @@ export class AppComponent {
     return this.as.isAuthenticated();
   }
 
-  constructor(private as: AuthService){
+  constructor(private as: AuthService, public router: Router){
     
+  }
+
+  goToProfile(){
+    this.router.navigate(['profile']);
   }
 
   login(email: string, password: string)
