@@ -19,7 +19,11 @@ namespace Resource.Api.Controlles
 
         [HttpGet]
         [Route("noteList")]
-        public IActionResult GetNoteList() => Ok(_dbContext.LittleNotes.Where(x => x.AccountId == WRContext.Account.Id));
+        public IActionResult GetNoteList() {
+
+            var qwe = _dbContext.LittleNotes.Where(x => x.AccountId == WRContext.Account.Id).ToList();
+           return Ok(qwe);
+        }
 
         [HttpPost]
         [Route("createNote")]
@@ -31,7 +35,8 @@ namespace Resource.Api.Controlles
                 {
                     Title = note.Title,
                     Body = note.Body,
-                    AccountId = WRContext.Account.Id
+                    AccountId = WRContext.Account.Id,
+                    FilePath = note.FilePath
                 });
 
                 _dbContext.SaveChanges();

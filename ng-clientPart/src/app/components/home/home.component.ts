@@ -25,8 +25,11 @@ notes: Note[]=[];
 columns =['id','author', 'title', 'price']
 closeResult = '';
 title: string;
-body: string
-  constructor(private bs: BookstoreService ,public dialog: MatDialog , public noteService: NoteService) { }
+body: string;
+filePath: string;
+  constructor(private bs: BookstoreService ,public dialog: MatDialog , public noteService: NoteService) {
+   }
+  
 
   ngOnInit(): void {
     this.noteService.getList()
@@ -38,12 +41,13 @@ body: string
   createNoticeDialog(): void {
     const dialogRef = this.dialog.open(CreateNoticeComponent, {
       width: '250px',
-      data: {title : this.title , body: this.body }
+      data: {title : this.title , body: this.body , filePath: this.filePath}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       this.note.title = result[0];
-      this.note.body = result[1]
+      this.note.body = result[1];
+      this.note.filePath = result[2];
       this.noteService.creteNote(this.note);
     });
   }

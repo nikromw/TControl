@@ -13,10 +13,10 @@ export class NoteService {
   
   constructor(private http: HttpClient, @Inject(STORE_API_URL) private apiUrl:string) { }
 
-  creteNote(note :Note):any {
+  creteNote(note :any):any {
     var body = JSON.stringify(note);
-    const headers = { 'content-type': 'application/json'}  
-    return this.http.post(`${this.baseApiUrl}Note/createNote?title=noteTitle&body=noteBody` ,body, {headers})
+    const headers = { 'content-type': 'application/json' }  
+    return this.http.post(`${this.baseApiUrl}Note/createNote?title=noteTitle&body=noteBody` ,note)
     .subscribe((response: any) => {
       console.log(response);
     });

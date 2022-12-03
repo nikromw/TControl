@@ -8,9 +8,14 @@
         <mat-label>What's your name?</mat-label>
         <input matInput [(ngModel)]="data.body">
       </mat-form-field>
+      <div>
+        <mat-label>Load image</mat-label>
+        <input type="file" #file placeholder="Choose file"  (change)="onselectFile($event)" style="display:none;">
+    <button type="button" class="btn btn-success" (click)="file.click()">Upload File</button>
+  </div>
     </li>
     <li>
-      <button mat-raised-button [mat-dialog-close]="[data.title, data.body]">Pick one</button>
+      <button mat-raised-button [mat-dialog-close]="[data.title, data.body, data.filePath]">Pick one</button>
       <button (click)="onNoClick()">close</button>
     </li>
   </ol>

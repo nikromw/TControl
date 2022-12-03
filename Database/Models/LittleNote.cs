@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Resource.Api.Models
 {
@@ -12,6 +15,7 @@ namespace Resource.Api.Models
         public DateTime Created { get; set; }
         public DateTime Updated { get; set; }
         public DateTime Deleted { get; set; }
+        public string FilePath { get; set; }
         public Guid AccountId { get; set; }
     }
 }

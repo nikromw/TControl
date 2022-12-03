@@ -11,6 +11,7 @@ export class LittleNoticeComponent implements OnInit {
 
   @Input() title: string ;
   @Input() body : string ;
+  @Input() filePath: string;
   
   ngOnInit(): void {
   }
