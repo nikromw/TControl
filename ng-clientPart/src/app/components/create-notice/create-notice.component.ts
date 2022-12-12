@@ -12,12 +12,8 @@ import { NoteService } from 'src/app/services/note.service';
 })
 export class CreateNoticeComponent implements OnInit {
 
-  image!: any;
   title: string;
   body: string;
-  description: string;
-  animal: string;
-  name: string;
   note: Note;
   backgroundImg: string;
   constructor(public dialog: MatDialog,
@@ -33,7 +29,8 @@ export class CreateNoticeComponent implements OnInit {
   createNote() {
     this.note.title = this.data.title;
     this.note.body = this.data.body;
-
+    this.note.filePath = this.data.filePath;
+    this.note.id = this.data.id;
     this.noteService.creteNote(this.note);
 
   }
@@ -59,5 +56,6 @@ export interface DialogData {
   title: string;
   body: string;
   filePath: string;
+  id: number;
 }
 

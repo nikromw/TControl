@@ -35,8 +35,6 @@ filePath: string;
 
   createNoticeDialog(): void {
     const dialogRef = this.dialog.open(CreateNoticeComponent, {
-      width: '400px',
-      height: '500px',
       data: {title : this.title , body: this.body , filePath: this.filePath}
     });
 

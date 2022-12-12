@@ -1,5 +1,6 @@
 ﻿using Auth.Api.Models;
 using Common;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters.Xml;
 using Microsoft.EntityFrameworkCore;
@@ -59,9 +60,19 @@ namespace Auth.Api.Controllers
 
             var token = GenerateJWT(user);
 
+            user.Password = null;
+
             WRContext.Account = user;
 
             return Ok(new {access_token = token});
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("getAccount")]
+        public JsonResult GetAccount()
+        {
+            return new JsonResult(WRContext.Account);
         }
 
         private Account AuthenticateUser(string email, string password)

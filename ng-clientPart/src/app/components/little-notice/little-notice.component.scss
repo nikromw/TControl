@@ -13,9 +13,23 @@
 .little-note:hover{
    // background-color:chartreuse;
    // background-size: 65px 65px;
-    height: 210px;
-    width: 160px;
+      height: 230px;
+    width: 180px;
+    animation: forwards;
+    animation-name: glow-around;
+    animation-duration: 0.5s;    
+
 }
+
+@keyframes glow-around {
+    to {    
+        animation-duration: 1s;
+        background-color: #fff;
+        box-shadow:
+          0 0 6px 3px #fff,  /* inner white */
+          0 0 10px 6px rgb(255, 123, 255), /* middle magenta */
+          0 0 14px 9px rgb(130, 255, 255); /* outer cyan */}
+  }
 
 .note-title{
 display: flex;

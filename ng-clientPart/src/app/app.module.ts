@@ -26,6 +26,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LeftMenuComponent } from './components/left-menu/left-menu.component';
 import { ResumeComponent } from './components/resume/resume.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { ProfileModalComponent } from './components/profile-modal/profile-modal.component';
+import { EditNoteComponent } from './components/little-notice/edit-note/edit-note.component';
 export function tokenGetter(){
   return localStorage.getItem(ACCESS_TOKEN_KEY);
 }
@@ -43,6 +45,8 @@ export function tokenGetter(){
     LeftMenuComponent,
     ResumeComponent,
     RegistrationComponent,
+    ProfileModalComponent,
+    EditNoteComponent,
   ],
   imports: [
     BrowserModule,

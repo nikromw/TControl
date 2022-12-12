@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { AuthService } from 'src/app/services/auth.service';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-auth',
@@ -10,13 +11,12 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AuthComponent implements OnInit {
 
-  router: Router;
 
   public get isLoggedIn():boolean{
     return this.as.isAuthenticated();
   }
 
-  constructor(private as: AuthService, router: Router){
+  constructor(private as: AuthService, public router: Router, public profile: ProfileService){
     
   }
   ngOnInit(): void {
@@ -33,7 +33,10 @@ export class AuthComponent implements OnInit {
   }
 
   goToItems() {
-    this.router.navigate(['/home']);
+    this.as.getAccount().subscribe({
+      complete: () => alert('qweqwe'),
+    });
+    this.router.navigate(['home']);
   }
 
   logout(){

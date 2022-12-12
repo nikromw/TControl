@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Resource.Api.Models;
 using System;
 using System.Linq;
@@ -18,14 +19,19 @@ namespace Resource.Api.Controlles
         }
 
         [HttpGet]
+        [Authorize]
         [Route("noteList")]
         public IActionResult GetNoteList() {
 
-            var qwe = _dbContext.LittleNotes.Where(x => x.AccountId == WRContext.Account.Id).ToList();
+            var qwe = _dbContext.LittleNotes
+                .Where(x => x.AccountId == WRContext.Account.Id)
+                .OrderByDescending(x => x.Created)
+                .ToList();
            return Ok(qwe);
         }
 
         [HttpPost]
+        [Authorize]
         [Route("createNote")]
         public IActionResult CreateNote([FromBody]LittleNote note)
         {
@@ -50,6 +56,27 @@ namespace Resource.Api.Controlles
         }
 
         [HttpPost]
+        [Authorize]
+        [Route("updateNote")]
+        public IActionResult EditNote([FromBody] LittleNote note)
+        {
+           var oldNote = _dbContext.LittleNotes.Where(x => x.Id == note.Id).FirstOrDefault();
+
+            if (oldNote == null)
+                return Ok();
+
+            oldNote.Title = note.Title;
+            oldNote.Body = note.Body;
+            oldNote.FilePath = note.FilePath;
+
+            _dbContext.SaveChanges();
+
+            return Ok();
+        }
+
+
+        [HttpPost]
+        [Authorize]
         [Route("deleteNote")]
         public IActionResult DeleteNote([FromBody] LittleNote note)
         {

@@ -1,0 +1,9 @@
+.back-color-change > div:hover{
+    animation: forwards;
+    animation-name: back-color;
+    animation-duration: 1s;
+}
+
+@keyframes back-color {
+    to {background-color: rgb(255, 221, 135);}
+}

@@ -6,8 +6,10 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 import { tap } from "rxjs";
 import { Observable } from "rxjs";
 import { AUTH_API_URL } from "../app-injection-tokens";
+import { Account } from "../models/account";
 import { Auth } from "../models/auth";
 import { Token } from "../models/token";
+import { ProfileService } from "./profile.service";
 
 
 export const ACCESS_TOKEN_KEY = 'bookstore_access_token'
@@ -20,7 +22,8 @@ export class AuthService {
   constructor(private http: HttpClient,
       @Inject(AUTH_API_URL) private apiUrl: string,
       private jwtHelper: JwtHelperService,
-      private router: Router) { }
+      private router: Router,
+      private profile: ProfileService) { }
 
   login(email: string, password: string): Observable<Token> {
       return this.http.post<Token>(`${this.apiUrl}api/auth/login`,
@@ -29,6 +32,14 @@ export class AuthService {
               tap(token => {
                   localStorage.setItem(ACCESS_TOKEN_KEY, token.access_token);
               }))
+  }
+
+  getAccount():Observable<Account>{
+    return this.http.get<Account>(`${this.apiUrl}api/auth/getAccount`)
+    .pipe(
+        tap(data => {
+          this.profile.setAccountParams(data);
+        }))
   }
 
   registration(auth: Auth){

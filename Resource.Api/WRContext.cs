@@ -18,6 +18,7 @@ namespace WriteModel
             {
                 if (_account == null)
                     _account = value;
+
             }
         }
 

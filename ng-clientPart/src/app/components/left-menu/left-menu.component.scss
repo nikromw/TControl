@@ -11,6 +11,7 @@
 }
 
 .left-menu > div:hover{
+    animation: forwards;
     animation-name: left-menu-color;
     animation-duration: 1s;
 }

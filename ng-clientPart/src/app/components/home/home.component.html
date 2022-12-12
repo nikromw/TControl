@@ -2,11 +2,11 @@
     <app-left-menu></app-left-menu>
     <div class="main-notice-container little-note">
 
-        <div class="create-notice " (click)="createNoticeDialog()">
+        <div class="create-notice" (click)="createNoticeDialog()">
     </div>
 
-        <div class="note-container" *ngFor="let note of notes">
-            <l-notice [title]="note.title" [body]="note.body" [filePath]="note.filePath"></l-notice>
+        <div class="note-container">
+            <l-notice *ngFor="let note of notes" [id]="note.id" [title]="note.title" [body]="note.body" [filePath]="note.filePath"></l-notice>
         </div>
 
     </div>

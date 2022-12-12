@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ProfileModalComponent } from './components/profile-modal/profile-modal.component';
 import { AuthService } from './services/auth.service';
 
 @Component({
@@ -16,12 +18,12 @@ export class AppComponent {
     return this.as.isAuthenticated();
   }
 
-  constructor(private as: AuthService, public router: Router){
+  constructor(private as: AuthService, public router: Router,public dialog: MatDialog){
     
   }
 
-  goToProfile(){
-    this.router.navigate(['profile']);
+  openProfileModal(){
+    const dialogRef = this.dialog.open(ProfileModalComponent, {});
   }
 
   login(email: string, password: string)
