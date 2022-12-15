@@ -1,12 +1,14 @@
-<div [ngStyle]="{'background': 'url(' + data.filePath + ') no-repeat 0 0 / cover'}">
+<div class="text" [ngStyle]="{'background': 'url(' + data.filePath + ') no-repeat 0 0 / cover'}">
   <mat-form-field appearance="fill">
-    <mat-label>What's your name?</mat-label>
+    <mat-label>Note title</mat-label>
     <input matInput [(ngModel)]="data.title">
   </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>What's your name?</mat-label>
-    <input matInput [(ngModel)]="data.body">
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Note description</mat-label>
+    <textarea matInput matInput [(ngModel)]="data.body" placeholder="Ex. It makes me feel..."></textarea>
   </mat-form-field>
+  
 </div>
   <div>
     <mat-label>Load background image</mat-label>

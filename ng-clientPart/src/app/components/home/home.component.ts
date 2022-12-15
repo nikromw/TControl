@@ -35,7 +35,7 @@ filePath: string;
 
   createNoticeDialog(): void {
     const dialogRef = this.dialog.open(CreateNoticeComponent, {
-      data: {title : this.title , body: this.body , filePath: this.filePath}
+      data: {title : this.title , body: this.body , filePath: this.filePath},
     });
 
     dialogRef.afterClosed().subscribe(result => {
