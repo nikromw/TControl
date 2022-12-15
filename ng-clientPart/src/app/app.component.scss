@@ -25,6 +25,16 @@
 
 }
 
+.main{
+    margin: auto;
+    display: flex;
+    width: auto;
+}
+
+.menu{
+   width: 20%; 
+}
+
 .title{
     color: white;
     font-size: large;
@@ -50,3 +60,4 @@
     -webkit-filter:  brightness(1.5); 
     filter: brightness(1.5); 
 }
+
