@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
+using ReadModel.Models;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -32,7 +33,7 @@ namespace Auth.Api.Controllers
 
         [Route("regUser")]
         [HttpPost]
-        public IActionResult Registration([FromBody] Login request)
+        public IActionResult Registration([FromBody] Registration request)
         {
             if (_dbContext.Accounts.Where(x => x.EMail == request.Email).Any())
                 return StatusCode(403 , "Такой пользователь уже зарегестрирован.");

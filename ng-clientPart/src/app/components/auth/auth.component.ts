@@ -32,6 +32,10 @@ export class AuthComponent implements OnInit {
     })
   }
 
+  goPage(path: string){
+this.router.navigate([path]);
+  }
+
   goToItems() {
     this.as.getAccount().subscribe({
       complete: () => alert('qweqwe'),

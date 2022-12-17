@@ -1,25 +1,25 @@
 <div class="login-form">
     <div class="example-form-field mail-input">
       <div>Email</div>
-      <input type="email" matInput placeholder="user@mail.ru" #email>
+      <input type="email" matInput placeholder="user@mail.ru" #email [(ngModel)]="regModel.email">
     </div>
     <div class="example-form-field pass-input">
       <div>Password</div>
-      <input type="password" matInput #password>
+      <input type="text" matInput #password [(ngModel)]="regModel.password">
     </div>
     <div class="example-form-field pass-input">
       <div>Name</div>
-      <input type="password" matInput #name>
+      <input type="text" matInput #name  [(ngModel)]="regModel.name">
     </div>
     <div class="example-form-field pass-input">
       <div>Secondname</div>
-      <input type="password" matInput #secName>
+      <input type="text" matInput #secName [(ngModel)]="regModel.secName">
     </div>
     <div class="example-form-field pass-input">
-        <div>Load profile photo</div>
-        <input type="password" matInput #photo>
+      <input type="file" #file placeholder="Choose file" (change)="onselectFile($event)" style="display:none;">
+      <button type="button" class="btn btn-outline-primary btn-sm" (click)="file.click()">Upload File</button>
       </div>
     <div class="login-button">
-    <button  mat-flat-button color="primary" (click)='registration(email.value, password.value, name.value, secName.value, photo.value)'>Login</button>
+    <button  mat-flat-button color="primary" (click)='registration()'>Login</button>
   </div>
   </div>

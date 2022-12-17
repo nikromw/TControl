@@ -7,7 +7,6 @@ import { NoteService } from 'src/app/services/note.service';
 import { Note } from 'src/app/models/note';
 
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

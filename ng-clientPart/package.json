@@ -22,6 +22,7 @@
     "@angular/router": "^14.2.0",
     "@auth0/angular-jwt": "^5.1.0",
     "@ng-bootstrap/ng-bootstrap": "^13.1.0",
+    "@ngneat/dialog": "^3.0.2",
     "bootstrap": "^5.2.3",
     "mdb-angular-ui-kit": "^3.0.0",
     "rxjs": "~7.5.0",
