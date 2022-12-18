@@ -8,18 +8,11 @@ namespace WriteModel
     {
         private static Account _account;
 
-        public static Account Account
-        {
-            get
-            {
-                return _account;
-            }
-            set
-            {
-                if (_account == null)
-                    _account = value;
+        public static Account Account { get; set; }
 
-            }
+        public static void SetCurrentUser(Account account)
+        {
+            Account = account;
         }
 
         public WRContext(DbContextOptions<WRContext> options) : base(options)

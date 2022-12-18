@@ -27,7 +27,7 @@ export class AuthComponent implements OnInit {
   {
     this.as.login(email,password)
     .subscribe({
-     complete: () => this.goToItems(),
+     complete: () => this.getAccount(),
      error: () => alert('Error authorithation.')
     })
   }
@@ -36,7 +36,7 @@ export class AuthComponent implements OnInit {
 this.router.navigate([path]);
   }
 
-  goToItems() {
+  getAccount() {
     this.as.getAccount().subscribe({
       complete: () => alert('qweqwe'),
     });

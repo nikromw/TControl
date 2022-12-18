@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ProfileModalComponent } from './components/profile-modal/profile-modal.component';
 import { AuthService } from './services/auth.service';
+import { ProfileService } from './services/profile.service';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,7 @@ export class AppComponent {
     return this.as.isAuthenticated();
   }
 
-  constructor(private as: AuthService, public router: Router,public dialog: MatDialog){
+  constructor(private as: AuthService, public router: Router,public dialog: MatDialog, public profileService: ProfileService){
     
   }
 

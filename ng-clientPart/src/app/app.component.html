@@ -4,7 +4,7 @@
     <div class="header" *ngIf='isLoggedIn'>
       <div class="title">Title</div>
       <div (click)="openProfileModal()">
-        <img class="profile-mini profile-mini-color-change"  alt="photo" src="https://img2.akspic.ru/previews/9/0/9/8/6/168909/168909-ballonchik-graffiti-ulichnoe_iskusstvo-svet-purpur-500x.jpg"/>
+        <img class="profile-mini profile-mini-color-change"   [ngStyle]="{'background': 'url(' + this.profileService.getAccountParams().photo + ') no-repeat 0 0 / cover'}"/>
         
         <!-- <app-profile class="profile_mini"></app-profile> -->
       </div>

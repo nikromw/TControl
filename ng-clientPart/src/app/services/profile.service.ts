@@ -6,7 +6,7 @@ import { Account } from '../models/account';
 })
 export class ProfileService {
 
- private account : Account;
+ private account : Account ;
   constructor() { }
 
   setAccountParams(account: Account) {
@@ -26,9 +26,17 @@ export class ProfileService {
     if (!this.account.roles) {
       this.account.roles = account.roles;
     }
+    if(!this.account.photo)
+    {
+      this.account.photo = account.photo;
+    }
   }
 
-  getAccountParams(){
+  dropAccountParams(){
+    this.account = new Account();
+  }
+
+  getAccountParams(): Account{
     return this.account;
   }
 

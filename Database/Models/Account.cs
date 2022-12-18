@@ -9,6 +9,7 @@ namespace Auth.Api.Models
         public Guid Id { get; set; }
         public string EMail { get; set; }
         public string Password { get; set; }
+        public string Photo { get; set; }
         public Role Roles { get; set; }
         public IEnumerable<LittleNote> LittleNotes { get; set; }
     }

@@ -3,4 +3,5 @@ export class Account{
      name: string;
      eMail: string;
      roles: number[];
+     photo: string;
     }

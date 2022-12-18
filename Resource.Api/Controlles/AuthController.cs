@@ -42,30 +42,43 @@ namespace Auth.Api.Controllers
             {
                 EMail = request.Email,
                 Password = request.Password,
-                Id = Guid.NewGuid()
+                Id = Guid.NewGuid(),
+                Photo = request.Photo
             });
 
             _dbContext.SaveChanges();
 
-            return Ok();
+            var token = Authenticate(request.Email, request.Password);
+
+            if (token == null)
+                return StatusCode(403, "Authentication error");
+
+            return Ok(new {access_token = token});
         }
 
         [Route("login")]
         [HttpPost]
         public IActionResult Login([FromBody] Login request)
         {
-            var user = AuthenticateUser(request.Email, request.Password);
+            var token = Authenticate(request.Email, request.Password);
+
+            if(token == null)
+                return StatusCode(403, "Authorization error.");
+
+            return Ok(new { access_token = token });
+        }
+
+        private string Authenticate(string email, string password)
+        {
+            var user = AuthenticateUser(email, password);
 
             if (user == null)
-                return Unauthorized();
-
-            var token = GenerateJWT(user);
+                return null;
 
             user.Password = null;
+            WRContext.SetCurrentUser(user);
 
-            WRContext.Account = user;
-
-            return Ok(new {access_token = token});
+          return  GenerateJWT(user);
         }
 
         [HttpGet]

@@ -8,7 +8,6 @@ import { tap } from "rxjs";
 import { Observable } from "rxjs";
 import { AUTH_API_URL } from "../app-injection-tokens";
 import { Account } from "../models/account";
-import { Auth } from "../models/auth";
 import { Registration } from "../models/registration";
 import { Token } from "../models/token";
 import { ProfileService } from "./profile.service";
@@ -48,19 +47,18 @@ export class AuthService {
   registration(reg: Registration){
     var body = JSON.stringify(reg);
     const headers = { 'content-type': 'application/json'}  ;
-    return this.http.post(`${this.apiUrl}api/auth/regUser`, reg)
+    return this.http.post<Token>(`${this.apiUrl}api/auth/regUser`, reg)
     .subscribe(
       result => {
         // Handle result
-        console.log(result)
+        localStorage.setItem(ACCESS_TOKEN_KEY, result.access_token);
+        this.router.navigate(['home']);
       },
       error => {
         console.log(error.status,);
         this.snack.open( error.error);
       },
       () => {
-        // 'onCompleted' callback.
-        // No errors, route to new page here
       });
   }
 
@@ -71,6 +69,7 @@ export class AuthService {
 
   logout(): void {
       localStorage.removeItem(ACCESS_TOKEN_KEY);
+      this.profile.dropAccountParams();
       this.router.navigate(['']);
   }
 }
