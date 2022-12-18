@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
-import { OrdersComponent } from './components/orders/orders.component';
 import { AUTH_API_URL, STORE_API_URL } from './app-injection-tokens';
 import { environment } from 'src/environments/environment';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -29,6 +28,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { ProfileModalComponent } from './components/profile-modal/profile-modal.component';
 import { EditNoteComponent } from './components/little-notice/edit-note/edit-note.component';
 import { MatSnackBar} from '@angular/material/snack-bar'; 
+import { ProfileService } from './services/profile.service';
 
 export function tokenGetter(){
   return localStorage.getItem(ACCESS_TOKEN_KEY);
@@ -38,7 +38,6 @@ export function tokenGetter(){
   declarations: [
     AppComponent,
     HomeComponent,
-    OrdersComponent,
     LittleNoticeComponent,
     BaseMenuComponent,
     AuthComponent,
@@ -68,9 +67,10 @@ export function tokenGetter(){
       }
     })
   ],
-  exports: [HomeComponent, OrdersComponent],
+  exports: [HomeComponent],
   providers: [
     MatDialog,
+    ProfileService,
     MatSnackBar,
     Overlay,{
     provide: AUTH_API_URL,

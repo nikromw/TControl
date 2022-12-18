@@ -1,6 +1,4 @@
 import { Component, NgModule, OnInit } from '@angular/core';
-import { Book } from 'src/app/models/book';
-import { BookstoreService } from 'src/app/services/bookstore.service';
 import { CreateNoticeComponent } from '../create-notice/create-notice.component';
 import { MatDialog } from '@angular/material/dialog';
 import { NoteService } from 'src/app/services/note.service';
@@ -13,7 +11,6 @@ import { Note } from 'src/app/models/note';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-books: Book[]=[];
 note: Note = new Note;
 notes: Note[]=[];
 columns =['id','author', 'title', 'price']
@@ -21,7 +18,7 @@ closeResult = '';
 title: string;
 body: string;
 filePath: string;
-  constructor(private bs: BookstoreService ,public dialog: MatDialog , public noteService: NoteService) {
+  constructor(public dialog: MatDialog , public noteService: NoteService) {
    }
   
 

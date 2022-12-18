@@ -78,7 +78,7 @@ namespace Auth.Api.Controllers
             user.Password = null;
             WRContext.SetCurrentUser(user);
 
-          return  GenerateJWT(user);
+            return  GenerateJWT(user);
         }
 
         [HttpGet]

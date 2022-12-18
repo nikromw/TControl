@@ -6,12 +6,12 @@ import { Account } from '../models/account';
 })
 export class ProfileService {
 
- private account : Account ;
+  private account: Account;
   constructor() { }
 
   setAccountParams(account: Account) {
     //~singleton 
-      if(!this.account)
+    if (!this.account)
       this.account = new Account();
 
     if (!this.account.id) {
@@ -26,18 +26,23 @@ export class ProfileService {
     if (!this.account.roles) {
       this.account.roles = account.roles;
     }
-    if(!this.account.photo)
-    {
+    if (!this.account.photo) {
       this.account.photo = account.photo;
     }
+
+    sessionStorage.setItem('currentUser', JSON.stringify(this.account));
   }
 
-  dropAccountParams(){
+  dropAccountParams() {
     this.account = new Account();
   }
 
-  getAccountParams(): Account{
-    return this.account;
-  }
+  getAccountParams(): Account {
+    var jsonAcc = sessionStorage.getItem('currentUser');
 
+    if (jsonAcc)
+      return <Account>JSON.parse(jsonAcc);
+
+    return new Account();
+  }
 }

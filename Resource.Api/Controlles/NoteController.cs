@@ -21,19 +21,19 @@ namespace Resource.Api.Controlles
         [HttpGet]
         [Authorize]
         [Route("noteList")]
-        public IActionResult GetNoteList() {
-
-            var qwe = _dbContext.LittleNotes
+        public IActionResult GetNoteList()
+        {
+            var notes = _dbContext.LittleNotes
                 .Where(x => x.AccountId == WRContext.Account.Id)
                 .OrderByDescending(x => x.Created)
                 .ToList();
-           return Ok(qwe);
+            return Ok(notes);
         }
 
         [HttpPost]
         [Authorize]
         [Route("createNote")]
-        public IActionResult CreateNote([FromBody]LittleNote note)
+        public IActionResult CreateNote([FromBody] LittleNote note)
         {
             try
             {
@@ -47,7 +47,8 @@ namespace Resource.Api.Controlles
 
                 _dbContext.SaveChanges();
 
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 return StatusCode(500, e.Message);
             }
@@ -60,7 +61,7 @@ namespace Resource.Api.Controlles
         [Route("updateNote")]
         public IActionResult EditNote([FromBody] LittleNote note)
         {
-           var oldNote = _dbContext.LittleNotes.Where(x => x.Id == note.Id).FirstOrDefault();
+            var oldNote = _dbContext.LittleNotes.Where(x => x.Id == note.Id).FirstOrDefault();
 
             if (oldNote == null)
                 return Ok();
@@ -82,7 +83,6 @@ namespace Resource.Api.Controlles
         {
             try
             {
-
                 var noteToDelete = _dbContext.LittleNotes.FirstOrDefault(x => x.Id == note.Id);
 
                 if (noteToDelete != null)
