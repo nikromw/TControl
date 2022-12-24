@@ -6,11 +6,8 @@
     color: #fff;
     text-shadow: 1px 0 rgb(0, 0, 0), -1px 0  rgb(0, 0, 0), 0 1px  rgb(0, 0, 0), 0 -1px  rgb(0, 0, 0),
                1px 1px rgb(0, 0, 0), -1px -1px  rgb(0, 0, 0), 1px -1px  rgb(0, 0, 0), -1px 1px  rgb(0, 0, 0);
+               text-shadow: 1px;
 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    text-shadow: 1px;
 }
 
 .little-note:hover{
@@ -48,4 +45,10 @@ justify-content: space-between;
     padding-top: 10px;
     height: 80%;
     overflow: hidden;
+}
+
+.note-picture{
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
