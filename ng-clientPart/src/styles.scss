@@ -1,18 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+    height: 100%; 
+    background-color: #88BDBC;
+}
+
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    }
 
 div{
-   // background-color: beige;
     padding:5px;
     border: 2px;
 }
+
 
 .app-width{
     width: auto;
 }
 
 app-home{
+    width: 100%;
+}
+
+create-notice{
+    height: 100%;
+}
+
+app-auth{
     width: 100%;
 }

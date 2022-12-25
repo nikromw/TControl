@@ -7,14 +7,19 @@
     text-shadow: 1px 0 rgb(0, 0, 0), -1px 0  rgb(0, 0, 0), 0 1px  rgb(0, 0, 0), 0 -1px  rgb(0, 0, 0),
                1px 1px rgb(0, 0, 0), -1px -1px  rgb(0, 0, 0), 1px -1px  rgb(0, 0, 0), -1px 1px  rgb(0, 0, 0);
                text-shadow: 1px;
+               
+    border: #fff;
+}
 
+.note-picture{
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .little-note:hover{
    // background-color:chartreuse;
    // background-size: 65px 65px;
-      height: 230px;
-    width: 180px;
     animation: forwards;
     animation-name: glow-around;
     animation-duration: 0.5s;    
@@ -26,9 +31,8 @@
         animation-duration: 1s;
         background-color: #fff;
         box-shadow:
-          0 0 6px 3px #fff,  /* inner white */
-          0 0 10px 6px rgb(255, 123, 255), /* middle magenta */
-          0 0 14px 9px rgb(130, 255, 255); /* outer cyan */}
+        0 0 5px 2px rgb(27, 102, 102), /* outer cyan */
+        0 0 8px 4px   rgb(0, 0, 0);  /* inner white */}
   }
 
 .note-title{
@@ -45,10 +49,4 @@ justify-content: space-between;
     padding-top: 10px;
     height: 80%;
     overflow: hidden;
-}
-
-.note-picture{
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
 }

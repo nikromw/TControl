@@ -1,6 +1,6 @@
 .topnav{
     overflow:hidden;
-    background-color: #333;
+    background-color: #112d32;
 
     a{
         float:left;
@@ -23,8 +23,10 @@
     }
 }
 
+
 .main{
-    margin: auto;
+    margin: 0;
+    padding: 0;
     display: flex;
     width: auto;
 }
@@ -37,6 +39,9 @@
     color: white;
     font-size: large;
     font-weight: 500;
+    display:flex;
+    align-items: center;
+    margin-left: 10px;
 }
 
 .example-form-field{
@@ -58,5 +63,19 @@
 .profile-mini-color-change:hover{ 
     -webkit-filter:  brightness(1.5); 
     filter: brightness(1.5); 
+}
+
+.mini_profile{
+    text-align: center;
+    color:rgb(255, 255, 255);
+}
+
+.mini_profile:hover{
+    color: #ddd;
+}
+
+.mini_profile_name{
+    margin: 0%;
+    padding: 0;
 }
 

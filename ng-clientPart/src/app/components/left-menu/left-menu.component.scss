@@ -1,5 +1,6 @@
 .left-menu{
     margin: auto;
+    color:#000;
     margin: 15px;
     margin-top: 50px;
 }
@@ -16,6 +17,46 @@
     animation-duration: 1s;
 }
 
+.menu_element{
+
+}
+
+.menu_element::after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  background: #000;
+  transition: width .3s;
+}
+
+.menu_element:hover::after{
+  width: 100%;
+}
+
+.under_line:hover {
+    //FIXME сделать через jquel or JS 
+    display:block;
+    position:absolute;
+    top:45%;
+    left:50%;
+    border-bottom:4px solid red;
+    width:0%;
+    text-align:center;
+    animation: line 2s linear forwards;
+  }
+  
+  @keyframes line {
+    from {
+      left:50%;
+      width:0%;
+    }
+    to {
+      left:5%;
+      width:90%;
+    }
+  }
+
 @keyframes left-menu-color {
-    to {background-color: rgb(255, 221, 135);}
+    to {background-color: #6e6658;}
 }

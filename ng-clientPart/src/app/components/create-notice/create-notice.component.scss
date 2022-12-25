@@ -4,3 +4,16 @@
     text-shadow: 1px 0 rgb(0, 0, 0), -1px 0  rgb(0, 0, 0), 0 1px  rgb(0, 0, 0), 0 -1px  rgb(0, 0, 0),
                1px 1px rgb(0, 0, 0), -1px -1px  rgb(0, 0, 0), 1px -1px  rgb(0, 0, 0), -1px 1px  rgb(0, 0, 0);
 }
+
+
+.edit_buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.close_button{
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    height: auto;
+}

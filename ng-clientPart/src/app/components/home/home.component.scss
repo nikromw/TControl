@@ -5,8 +5,9 @@
 }
 
 .create-notice{
-    height: 200px;
-    width: 150px;
+    height: 220px;
+    width: 170px;
+    margin-top: 15px;
     background-image: url("../../static/plus.png");
     background-repeat: no-repeat;
     background-size: 60px 60px;
@@ -15,7 +16,7 @@
 }
 
 .create-notice:hover{
-    background-color: #f7f7fc;
+    background-color: radial-gradient(#88BDBC, #9fd0cf);
     animation: forwards;
     animation-name: plus-size;
     animation-duration: 0.4s;

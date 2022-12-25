@@ -1,10 +1,11 @@
 <div style="display: flex; justify-content: space-between; ">
     <div class="main-notice-container little-note">
-        <div class="create-notice" (click)="createNoticeDialog()">
-    </div>
+
+        <div class="create-notice" (click)="createNoticeDialog()"></div>
 
         <div class="note-container">
-            <l-notice *ngFor="let note of notes" [id]="note.id" [title]="note.title" [body]="note.body" [filePath]="note.filePath"></l-notice>
+            <l-notice *ngFor="let note of notes" [id]="note.id" [title]="note.title" [body]="note.body"
+                [filePath]="note.filePath"></l-notice>
         </div>
 
     </div>
