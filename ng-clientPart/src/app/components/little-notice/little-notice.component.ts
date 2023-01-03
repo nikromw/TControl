@@ -38,4 +38,8 @@ export class LittleNoticeComponent implements OnInit {
     });
   }
 
+  
+deleteNote() {
+  this.noteService.deleteNote(this.id);
+}
 }

@@ -79,17 +79,16 @@ namespace Resource.Api.Controlles
         [HttpPost]
         [Authorize]
         [Route("deleteNote")]
-        public IActionResult DeleteNote([FromBody] LittleNote note)
+        public IActionResult DeleteNote(int id)
         {
             try
             {
-                var noteToDelete = _dbContext.LittleNotes.FirstOrDefault(x => x.Id == note.Id);
+                var noteToDelete = _dbContext.LittleNotes.FirstOrDefault(x => x.Id == id && x.AccountId == WRContext.Account.Id);
 
                 if (noteToDelete != null)
                     _dbContext.LittleNotes.Remove(noteToDelete);
 
                 _dbContext.SaveChanges();
-
             }
             catch (Exception e)
             {

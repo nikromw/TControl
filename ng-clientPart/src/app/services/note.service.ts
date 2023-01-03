@@ -34,4 +34,11 @@ updateNote(note:any):any{
   getList():Observable<Note[]>{
   return this.http.get<Note[]>(`${this.baseApiUrl}Note/noteList`)
   }
+
+  deleteNote(id: any){
+    return this.http.post(`${this.baseApiUrl}Note/deleteNote?id=${id}`,{})
+    .subscribe((response: any) => {
+      console.log(response);
+    });
+  }
 }
