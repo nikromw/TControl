@@ -4,8 +4,7 @@
         <div class="create-notice" (click)="createNoticeDialog()"></div>
 
         <div class="note-container">
-            <l-notice *ngFor="let note of notes" [id]="note.id" [title]="note.title" [body]="note.body"
-                [filePath]="note.filePath"></l-notice>
+            <div #noteConteiner></div>
         </div>
 
     </div>

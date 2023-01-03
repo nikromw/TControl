@@ -1,8 +1,9 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { CreateNoticeComponent } from '../create-notice/create-notice.component';
 import { MatDialog } from '@angular/material/dialog';
 import { NoteService } from 'src/app/services/note.service';
 import { Note } from 'src/app/models/note';
+import { LittleNoticeComponent } from '../little-notice/little-notice.component';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { Note } from 'src/app/models/note';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  @ViewChild('noteConteiner', {read: ViewContainerRef}) noteConteiner: ViewContainerRef;
 note: Note = new Note;
 notes: Note[]=[];
 columns =['id','author', 'title', 'price']
@@ -25,8 +27,21 @@ filePath: string;
   ngOnInit(): void {
     this.noteService.getList()
     .subscribe(res =>{
-      this.notes = res
+      this.notes = res;
+      this.fillNoteConteiner();
     })
+  }
+
+  fillNoteConteiner(){
+
+    this.noteConteiner.clear();
+    for(let i = 0; i < this.notes.length; i++){
+    var note = this.noteConteiner.createComponent(LittleNoticeComponent);
+    note.instance.body = this.notes[i].body;
+    note.instance.filePath = this.notes[i].filePath;
+    note.instance.id = this.notes[i].id;
+    note.instance.title = this.notes[i].title;
+    }
   }
 
   createNoticeDialog(): void {
