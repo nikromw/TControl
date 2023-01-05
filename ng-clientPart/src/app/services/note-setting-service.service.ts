@@ -14,13 +14,13 @@ export class NoteSettingServiceService {
   constructor(private http: HttpClient, @Inject(STORE_API_URL) private apiUrl:string) { }
 
   createSetting(setting: any):any{
-      return this.http.get(`${this.baseApiUrl} NoteSetting/createNote` ,setting)
+      return this.http.get(`${this.baseApiUrl}NoteSetting/createSetting?settingName=${setting}`)
       .subscribe((response: any) => {
         console.log(response);
       });
   }
 
   getList():Observable<string[]>{
-    return this.http.get<string[]>(`${this.baseApiUrl} NoteSetting/getNoteSettingsList`);
+    return this.http.get<string[]>(`${this.baseApiUrl}NoteSetting/getNoteSettingsList`);
   }
 }

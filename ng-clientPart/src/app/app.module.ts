@@ -30,6 +30,7 @@ import { EditNoteComponent } from './components/little-notice/edit-note/edit-not
 import { MatSnackBar} from '@angular/material/snack-bar'; 
 import { ProfileService } from './services/profile.service';
 import { NoticeSettingsComponent } from './components/notice-settings/notice-settings.component';
+import { SettingComponent } from './components/notice-settings/setting/setting.component';
 
 export function tokenGetter(){
   return localStorage.getItem(ACCESS_TOKEN_KEY);
@@ -50,6 +51,7 @@ export function tokenGetter(){
     ProfileModalComponent,
     EditNoteComponent,
     NoticeSettingsComponent,
+    SettingComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,7 @@ export function tokenGetter(){
       }
     })
   ],
-  exports: [HomeComponent],
+  exports: [HomeComponent, NoticeSettingsComponent],
   providers: [
     MatDialog,
     ProfileService,

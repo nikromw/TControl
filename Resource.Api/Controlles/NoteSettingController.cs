@@ -37,6 +37,7 @@ namespace Resource.Api.Controlles
 
             NoteSetting newSetting = new NoteSetting();
             newSetting.SettingName = settingName;
+            newSetting.AccountId = WRContext.Account.Id;
 
             _dbContext.NoteSettings.Add(newSetting);
             _dbContext.SaveChanges();
