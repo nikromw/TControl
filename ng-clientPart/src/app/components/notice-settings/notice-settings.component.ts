@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, AfterViewInit  } from '@angular/core';
 import { NoteSettingServiceService } from 'src/app/services/note-setting-service.service';
 import { NoteService } from 'src/app/services/note.service';
 import { SettingComponent } from './setting/setting.component';
@@ -15,12 +15,16 @@ export class NoticeSettingsComponent implements OnInit {
   constructor(private settingService: NoteSettingServiceService) { }
 
   ngOnInit(): void {
+   
+  }
+
+  ngAfterViewInit(){
     this.settingService.getList()
-      .subscribe(res => {
-        this.settings = res;
-        this.loadSettings(res);
-      }
-      )
+    .subscribe(res => {
+      this.settings = res;
+      this.loadSettings(res);
+    }
+    )
   }
 
   loadSettings(settings: any) {
