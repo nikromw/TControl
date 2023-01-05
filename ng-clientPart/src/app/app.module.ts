@@ -29,6 +29,7 @@ import { ProfileModalComponent } from './components/profile-modal/profile-modal.
 import { EditNoteComponent } from './components/little-notice/edit-note/edit-note.component';
 import { MatSnackBar} from '@angular/material/snack-bar'; 
 import { ProfileService } from './services/profile.service';
+import { NoticeSettingsComponent } from './components/notice-settings/notice-settings.component';
 
 export function tokenGetter(){
   return localStorage.getItem(ACCESS_TOKEN_KEY);
@@ -48,6 +49,7 @@ export function tokenGetter(){
     RegistrationComponent,
     ProfileModalComponent,
     EditNoteComponent,
+    NoticeSettingsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
+﻿using ReadModel.Models;
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace Resource.Api.Models
 {
@@ -17,5 +16,6 @@ namespace Resource.Api.Models
         public DateTime Deleted { get; set; }
         public string FilePath { get; set; }
         public Guid AccountId { get; set; }
+        public IEnumerable<NoteSetting> NoteSettings { get; set; }
     }
 }

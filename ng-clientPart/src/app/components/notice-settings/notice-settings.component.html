@@ -1,0 +1,25 @@
+<div style="width: 100%;">
+    <div>Create notice settings</div>
+
+    <div class="main_settings">
+        <div  class="settins">
+            <button class="btn btn-primary btn-sm" (click)="createSetting(settingInput.value)">Create setting button</button>
+            <div>
+                <form >
+                    <input [(ngModel)]="settingName" 
+                    type="text" 
+                    #settingInput
+                    id="settingInput" 
+                    class="form-control setting_input_name" 
+                    placeholder="Setting name">
+                 </form>
+        </div>
+            <div id="settingConteiner"></div>
+        </div>
+        <div>
+            <button class="btn btn-primary btn-sm" (click)="addSettingParam()">Create setting button</button>
+            <div></div>
+            <!-- creating settings params-->
+        </div>
+    </div>
+</div>
