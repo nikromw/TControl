@@ -52,5 +52,26 @@ namespace Resource.Api.Controlles
 
             return Ok();
         }
+
+        [Authorize]
+        [HttpGet]
+        [Route("createSettingParam")]
+        public IActionResult CreateSettingParam(string settingParamValue, int settingId)
+        {
+            var account = _dbContext.Accounts.Where(x => x.Id == WRContext.Account.Id).FirstOrDefault();
+
+            if (account == null)
+                return StatusCode(404, "Account do not exist.");
+
+            _dbContext.SettingParams.Add(new SettingParam() { 
+                AccountId = WRContext.Account.Id,
+                NoteSettingId = settingId,
+                Description = settingParamValue
+            });
+
+            _dbContext.SaveChanges();
+
+            return Ok();
+        }
     }
 }

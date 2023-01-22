@@ -11,6 +11,6 @@ namespace ReadModel.Models
         public int NoteSettingId { get; set; }
         public string Description { get; set; }
         public Guid AccountId { get; set; }
-        public IEnumerable<NoteSetting> NoteSettings { get; set; }
+        //public IEnumerable<NoteSetting> NoteSettings { get; set; }
     }
 }

@@ -20,6 +20,13 @@ export class NoteSettingServiceService {
       });
   }
 
+  createSettingParam(paramValue: string, settingId: number):any{
+    return this.http.get(`${this.baseApiUrl}NoteSetting/createSettingParam?settingParamValue=${paramValue}&settingId=${settingId}`)
+    .subscribe((response: any) => {
+      console.log(response);
+    });
+}
+
   getList():Observable<string[]>{
     return this.http.get<string[]>(`${this.baseApiUrl}NoteSetting/getNoteSettingsList`);
   }

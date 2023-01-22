@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SettingComponent implements OnInit {
   @Input() name : string;
-
+  @Input() id : number;
   constructor() { }
 
   ngOnInit(): void {

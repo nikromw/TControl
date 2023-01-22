@@ -24,5 +24,6 @@ namespace WriteModel
         public DbSet<LittleNote> LittleNotes { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<NoteSetting> NoteSettings { get; set; }
+        public DbSet<SettingParam> SettingParams { get; set; }
     }
 }
