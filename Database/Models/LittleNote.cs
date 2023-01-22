@@ -16,6 +16,6 @@ namespace Resource.Api.Models
         public DateTime Deleted { get; set; }
         public string FilePath { get; set; }
         public Guid AccountId { get; set; }
-        public IEnumerable<NoteSetting> NoteSettings { get; set; }
+        public IEnumerable<SettingParam> SettingParams { get; set; }
     }
 }

@@ -25,14 +25,22 @@ namespace Resource.Api.Controlles
             return Ok(_dbContext.NoteSettings.Where(x => x.AccountId == WRContext.Account.Id));
         }
 
+        //[Authorize]
+        //[HttpGet]
+        //[Route("getNoteSettingsListByNoticeId")]
+        //public IActionResult GetNoteSettingsList(int noticeID)
+        //{
+        //    return Ok(_dbContext.NoteSettings.Where(x => x.AccountId == WRContext.Account.Id && x.));
+        //}
+
         [Authorize]
         [HttpGet]
         [Route("createSetting")]
         public IActionResult CreateSetting(string settingName)
         {
             var setting = _dbContext.NoteSettings.Where(x => x.SettingName == settingName && x.AccountId == WRContext.Account.Id).FirstOrDefault();
-            
-            if(setting != null)
+
+            if (setting != null)
                 return StatusCode(404, "This setting already exist.");
 
             NoteSetting newSetting = new NoteSetting();

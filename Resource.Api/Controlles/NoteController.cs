@@ -27,6 +27,10 @@ namespace Resource.Api.Controlles
                 .Where(x => x.AccountId == WRContext.Account.Id)
                 .OrderByDescending(x => x.Created)
                 .ToList();
+
+           // notes.ForEach(x => x.NoteSettings = _dbContext.NoteSettings.ToList());
+
+         //   notes.ForEach(x => x.NoteSettings.ToList().ForEach(s => s.SettingParams = _dbContext.))
             return Ok(notes);
         }
 

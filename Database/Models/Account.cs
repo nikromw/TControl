@@ -1,4 +1,5 @@
-﻿using Resource.Api.Models;
+﻿using ReadModel.Models;
+using Resource.Api.Models;
 using System;
 using System.Collections.Generic;
 
@@ -13,6 +14,8 @@ namespace Auth.Api.Models
         public string Name { get; set; }
         public Role Roles { get; set; }
         public IEnumerable<LittleNote> LittleNotes { get; set; }
+        public IEnumerable<NoteSetting> NoteSettings { get; set; }
+        public IEnumerable<SettingParam> SettingParams { get; set; }
     }
 
     public enum Role

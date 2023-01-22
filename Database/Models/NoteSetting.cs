@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Resource.Api.Models;
+using System;
 using System.Collections.Generic;
 
 namespace ReadModel.Models
@@ -7,7 +8,6 @@ namespace ReadModel.Models
     {
         public int Id { get; set; }
         public string SettingName { get; set; }
-        public IEnumerable<SettingParam> SettingParams { get; set; }
         public Guid AccountId { get; set; }
     }
 }

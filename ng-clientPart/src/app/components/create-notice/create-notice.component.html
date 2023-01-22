@@ -1,9 +1,10 @@
+<div>
 <div [ngStyle]="{'background': 'url(' + data.filePath + ') no-repeat 0 0 / cover'}">
   <mat-form-field appearance="fill">
     <mat-label>Note title</mat-label>
     <input matInput [(ngModel)]="data.title">
   </mat-form-field>
-
+  <br>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Note description</mat-label>
     <textarea matInput matInput [(ngModel)]="data.body" placeholder="Ex. It makes me feel..."></textarea>
@@ -16,7 +17,12 @@
   <button type="button" class="btn btn-outline-primary btn-sm" (click)="file.click()">Upload File</button>
   <button class="btn btn-outline-primary btn-sm" mat-raised-button
     [mat-dialog-close]="[data.title, data.body, data.filePath, data.id]">Create</button>
-  </div>
-  <div class="close_button">
-    <button class="btn btn-outline-primary btn-sm" (click)="onNoClick()">Close</button>
-  </div>
+</div>
+<div class="close_button">
+  <button class="btn btn-outline-primary btn-sm" (click)="onNoClick()">Close</button>
+</div>
+</div>
+
+<!--Notice Settings-->
+
+<div class="notice_settings"></div>

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NoteSettingServiceService } from './note-setting-service.service';
+import { NoteSettingServiceService } from './setting.service';
 
 describe('NoteSettingServiceService', () => {
   let service: NoteSettingServiceService;

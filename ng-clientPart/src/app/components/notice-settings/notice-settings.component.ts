@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ViewContainerRef, AfterViewInit  } from '@angular/core';
-import { NoteSettingServiceService } from 'src/app/services/note-setting-service.service';
+import { NoteSettingServiceService } from 'src/app/services/setting.service';
 import { NoteService } from 'src/app/services/note.service';
 import { SettingComponent } from './setting/setting.component';
 
