@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ReadModel.Models;
 using System.Linq;
 using WriteModel;
@@ -24,6 +25,17 @@ namespace Resource.Api.Controlles
         {
             return Ok(_dbContext.NoteSettings.Where(x => x.AccountId == WRContext.Account.Id));
         }
+
+
+        [Authorize]
+        [HttpGet]
+        [Route("getSettingsParamList")]
+        public IActionResult GetSettingsParamList()
+        {
+            var result = _dbContext.SettingParams.Where(x => x.AccountId == WRContext.Account.Id);
+            return Ok(result);
+        }
+
 
         //[Authorize]
         //[HttpGet]

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { STORE_API_URL } from '../app-injection-tokens';
+import { SettingParam } from '../models/settingParam';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,12 @@ export class NoteSettingServiceService {
     });
 }
 
-  getList():Observable<string[]>{
+  geSettingtList():Observable<string[]>{
     return this.http.get<string[]>(`${this.baseApiUrl}NoteSetting/getNoteSettingsList`);
+  }
+
+  
+  geSettingParamtList():Observable<SettingParam[]>{
+    return this.http.get<SettingParam[]>(`${this.baseApiUrl}NoteSetting/GetSettingsParamList`);
   }
 }

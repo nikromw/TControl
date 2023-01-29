@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ViewContainerRef, AfterViewInit, HostListener, ElementRef, Output, EventEmitter } from '@angular/core';
+import { SettingParam } from 'src/app/models/settingParam';
 import { NoteSettingServiceService } from 'src/app/services/setting.service';
 import { SettingComponent } from './setting/setting.component';
 
@@ -12,6 +13,7 @@ export class NoticeSettingsComponent implements OnInit {
   @ViewChild('settingParamConteiner', { read: ViewContainerRef }) settingParamConteiner: ViewContainerRef;
   settingName: string;
   settings: any;
+  settinParams: SettingParam[];
   settingParamName: string;
   selectedSetting: number;
 
@@ -22,17 +24,17 @@ export class NoticeSettingsComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.settingService.getList()
+    this.settingService.geSettingtList()
       .subscribe(res => {
         this.settings = res;
         this.loadSettings(res);
       })
 
-    //FIXME fix selector
-    // $('div').on('click' , function(e){
-    //   if(e.target.classList.contains('setting'))
-    //   alert();
-    // })
+      this.settingService.geSettingParamtList()
+      .subscribe(res => {
+        this.settinParams = res;
+      })
+
   }
 
 
@@ -42,6 +44,17 @@ export class NoticeSettingsComponent implements OnInit {
       let component = this.settingConteiner.createComponent(SettingComponent);
       component.setInput("name", settings[i].settingName);
       component.setInput("id", settings[i].id);
+    }
+  }
+
+  //Load settings params for selected setting
+  settingSelectChange(settingId: number){
+    this.settingParamConteiner.clear();
+    let paramsForCurrentSetting = this.settinParams.filter(x => x.noteSettingId == settingId)
+    for (let i = 0; i < paramsForCurrentSetting.length; i++) {
+      let component = this.settingParamConteiner.createComponent(SettingComponent);
+      component.setInput("name", paramsForCurrentSetting[i].description);
+      component.setInput("id", paramsForCurrentSetting[i].id);
     }
   }
 
@@ -69,6 +82,7 @@ export class NoticeSettingsComponent implements OnInit {
     const clickedInside = this._elementRef.nativeElement.contains(targetElement);
     if (targetElement.className == 'setting') {
       this.selectedSetting = parseInt(targetElement.id);
+      this.settingSelectChange(parseInt(targetElement.id));
     }
   }
 
