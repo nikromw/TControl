@@ -25,4 +25,21 @@
 
 <!--Notice Settings-->
 
-<div class="notice_settings"></div>
+<div class="notice_settings">
+  <div class="settings" >
+    <h5>Note settings</h5>
+    <div #settingConteiner>
+
+    </div>
+  </div>
+  <div class="params" >
+    <h5>settings value</h5>
+    <div #settingParamConteiner>
+      <select>
+        <option   *ngFor="let user of settinParams">
+          <select>{{user.description}}</select>
+          </option>
+      </select>
+    </div>
+  </div>
+</div>

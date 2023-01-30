@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ViewContainerRef, AfterViewInit, HostListener, ElementRef, Output, EventEmitter } from '@angular/core';
 import { SettingParam } from 'src/app/models/settingParam';
-import { NoteSettingServiceService } from 'src/app/services/setting.service';
+import { NoteSettingService } from 'src/app/services/setting.service';
 import { SettingComponent } from './setting/setting.component';
 
 @Component({
@@ -18,7 +18,7 @@ export class NoticeSettingsComponent implements OnInit {
   selectedSetting: number;
 
   counter: number;
-  constructor(private settingService: NoteSettingServiceService, private _elementRef: ElementRef) { }
+  constructor(private settingService: NoteSettingService, private _elementRef: ElementRef) { }
 
   ngOnInit(): void {
   }

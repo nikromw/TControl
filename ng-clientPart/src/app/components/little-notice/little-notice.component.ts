@@ -23,8 +23,8 @@ export class LittleNoticeComponent implements OnInit {
 
   editNoteComponent(): void {
     const dialogRef = this.dialog.open(CreateNoticeComponent, {
-      width: '400px',
-      height: '500px',
+      width: '800px',
+      height: '600px',
       data: {title : this.title , body: this.body , filePath: this.filePath , id: this.id}
     });
 

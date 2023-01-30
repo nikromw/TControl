@@ -7,7 +7,7 @@ import { SettingParam } from '../models/settingParam';
 @Injectable({
   providedIn: 'root'
 })
-export class NoteSettingServiceService {
+export class NoteSettingService {
 
 
   private baseApiUrl = `${this.apiUrl}api/`;
@@ -28,8 +28,8 @@ export class NoteSettingServiceService {
     });
 }
 
-  geSettingtList():Observable<string[]>{
-    return this.http.get<string[]>(`${this.baseApiUrl}NoteSetting/getNoteSettingsList`);
+  geSettingtList():Observable<SettingParam[]>{
+    return this.http.get<SettingParam[]>(`${this.baseApiUrl}NoteSetting/getNoteSettingsList`);
   }
 
   

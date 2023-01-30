@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ReadModel.Models;
+using System.Collections.Generic;
 using System.Linq;
 using WriteModel;
 
@@ -32,10 +33,36 @@ namespace Resource.Api.Controlles
         [Route("getSettingsParamList")]
         public IActionResult GetSettingsParamList()
         {
-            var result = _dbContext.SettingParams.Where(x => x.AccountId == WRContext.Account.Id);
+            var result = _dbContext.SettingParams.Where(x => x.AccountId == WRContext.Account.Id).ToList();
             return Ok(result);
         }
 
+        [Authorize]
+        [HttpGet]
+        [Route("getParamsByNoteId")]
+        public IActionResult GetParamsByNoteId(int noteId)
+        {
+            var result = _dbContext.SettingParams.Where(x => x.AccountId == WRContext.Account.Id && x.NoteSettingId == noteId);
+            return Ok(result);
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("saveParamsForNote")]
+        public IActionResult SaveNoteParams([FromBody]List<SettingParam> paramsSave, int noteId)
+        {
+           var settingParams = _dbContext.SettingParams.Where(x => x.NoteSettingId == noteId);
+
+            settingParams.ToList().ForEach(x => x.IsSelected = false);
+
+            for(int i = 0; i < paramsSave.Count; i++ )
+            {
+                var oldParam = settingParams.Where(x => x.Id == paramsSave[i].Id).FirstOrDefault();
+                oldParam.IsSelected = paramsSave[i].IsSelected;
+            }
+
+            return Ok();
+        }
 
         //[Authorize]
         //[HttpGet]
