@@ -33,7 +33,11 @@ export class NoteSettingService {
   }
 
   
+  geSettingParamById(noteSettingId: number):Observable<SettingParam[]>{
+    return this.http.get<SettingParam[]>(`${this.baseApiUrl}NoteSetting/getSettingsParamById?noteSettingId=${noteSettingId}`);
+  }
+  
   geSettingParamtList():Observable<SettingParam[]>{
-    return this.http.get<SettingParam[]>(`${this.baseApiUrl}NoteSetting/GetSettingsParamList`);
+    return this.http.get<SettingParam[]>(`${this.baseApiUrl}NoteSetting/getSettingsParamList`);
   }
 }

@@ -30,8 +30,19 @@ namespace Resource.Api.Controlles
 
         [Authorize]
         [HttpGet]
+        [Route("getSettingsParamById")]
+        public IActionResult GetSettingsParamById(int noteSettingId)
+        {
+            var result = _dbContext.SettingParams.Where(x => x.AccountId == WRContext.Account.Id 
+            && x.NoteSettingId == noteSettingId).ToList();
+            return Ok(result);
+        }
+
+
+        [Authorize]
+        [HttpGet]
         [Route("getSettingsParamList")]
-        public IActionResult GetSettingsParamList()
+        public IActionResult GetSettingsParamList(int noteSettingId)
         {
             var result = _dbContext.SettingParams.Where(x => x.AccountId == WRContext.Account.Id).ToList();
             return Ok(result);

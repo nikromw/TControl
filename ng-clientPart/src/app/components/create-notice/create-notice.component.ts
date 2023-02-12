@@ -27,6 +27,7 @@ export class CreateNoticeComponent implements OnInit {
   settings: SettingParam[];
   settinParams: SettingParam[];
   selectedSetting: number;
+param: any;
   constructor(public dialog: MatDialog,
     private settingService: NoteSettingService,
     public dialogRef: MatDialogRef<CreateNoticeComponent>,
@@ -43,10 +44,8 @@ export class CreateNoticeComponent implements OnInit {
       this.loadSettings(res);
     })
 
-    this.settingService.geSettingParamtList()
-    .subscribe(res => {
-      this.settinParams = res;
-    })
+    this.loadSettingsParams();
+
   }
 
   settingParamFilter(param: SettingParam){
@@ -88,13 +87,11 @@ export class CreateNoticeComponent implements OnInit {
     }
   }
 
-  loadSettingsParams(settings: any) {
-    this.settingConteiner.clear();
-    for (let i = 0; i < settings.length; i++) {
-      let component = this.settingConteiner.createComponent(SettingComponent);
-      component.setInput("name", settings[i].settingName);
-      component.setInput("id", settings[i].id);
-    }
+  loadSettingsParams() {
+    this.settingService.geSettingParamById(this.selectedSetting)
+    .subscribe(res => {
+      this.settinParams = res;
+    })
   }
 
   @Output()
@@ -105,6 +102,7 @@ export class CreateNoticeComponent implements OnInit {
     const clickedInside = this._elementRef.nativeElement.contains(targetElement);
     if (targetElement.className == 'setting') {
       this.selectedSetting = parseInt(targetElement.id);
+      this.loadSettingsParams();
     }
   }
 

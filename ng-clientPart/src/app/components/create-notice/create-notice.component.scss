@@ -22,11 +22,14 @@
 
 .settings{
     background-color:antiquewhite;
-    height: auto;
+    height: 200px;
+    overflow-y: auto;
     width: 50%;
 }
 .params{
     background-color: green;
     height: auto;
+    height: 200px;
+    overflow-y: auto;
     width: 50%;
 }
