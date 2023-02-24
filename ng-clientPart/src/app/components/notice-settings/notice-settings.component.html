@@ -2,7 +2,7 @@
     <div>Create notice settings</div>
 
     <div class="main_settings">
-        <div class="settins">
+        <div class="settings">
             <button class="btn btn-primary btn-sm" (click)="createSetting(settingInput.value)">Create setting
                 button</button>
             <div>
@@ -14,18 +14,18 @@
             <div id="settingConteiner" #settingConteiner></div>
             <div #noteConteiner></div>
         </div>
-        <div class="settins">
-                <button class="btn btn-primary btn-sm" (click)="createSettingParam(settingParamInput.value)">Create
-                    setting button</button>
-                <div>
-                    <form>
-                        <input [(ngModel)]="settingParamName" type="text" name="nameInput" #settingParamInput
-                            id="settingInput" class="form-control setting_input_name" placeholder="Setting name">
-                    </form>
-                </div>
-                <div id="settingParamConteiner" #settingParamConteiner></div>
-                <!-- creating settings params-->
+        <div class="settings">
+            <button class="btn btn-primary btn-sm" (click)="createSettingParam(settingParamInput.value)">Create
+                setting button</button>
+            <div>
+                <form>
+                    <input [(ngModel)]="settingParamName" type="text" name="nameInput" #settingParamInput
+                        id="settingInput" class="form-control setting_input_name" placeholder="Setting name">
+                </form>
             </div>
+            <div id="settingParamConteiner" #settingParamConteiner></div>
+            <!-- creating settings params-->
+        </div>
     </div>
     <script>
     </script>

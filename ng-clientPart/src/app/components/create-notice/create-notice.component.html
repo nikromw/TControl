@@ -26,7 +26,7 @@
 <!--Notice Settings-->
 
 <div class="notice_settings">
-  <div class="settings" >
+  <div class="settings scrollbar scrollbar-primary">
     <h5>Note settings</h5>
     <div #settingConteiner>
 
@@ -34,8 +34,8 @@
   </div>
   <div class="params" >
     <h5>settings value</h5>
-    <div #settingParamConteiner>
-      <select class="form-select" aria-label="Default select example">
+    <div #settingParamConteiner >
+      <select class="form-select " aria-label="Default select example">
         <option *ngFor="let user of settinParams">
           <select>{{user.description}}</select>
           </option>

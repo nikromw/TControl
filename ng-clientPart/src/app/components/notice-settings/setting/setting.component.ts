@@ -13,6 +13,8 @@ export class SettingComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
+  makeSelected(event: any){
+    event.srcElement.classList.add('selected-setting');
+  }
 
 }

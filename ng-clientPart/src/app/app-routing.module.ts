@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent },
   {path: 'resume', component: ResumeComponent },
   {path: 'regist', component: RegistrationComponent },
-  {path: 'notice-settins', component: NoticeSettingsComponent }
+  {path: 'notice-settings', component: NoticeSettingsComponent }
 ];
 
 @NgModule({

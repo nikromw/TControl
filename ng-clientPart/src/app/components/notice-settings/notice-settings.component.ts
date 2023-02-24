@@ -83,6 +83,21 @@ export class NoticeSettingsComponent implements OnInit {
     if (targetElement.className == 'setting') {
       this.selectedSetting = parseInt(targetElement.id);
       this.settingSelectChange(parseInt(targetElement.id));
+      this.dropSelectedClass();
+      this.setSelectedItem(targetElement);
+    }
+  }
+
+  setSelectedItem(selectedItem:any){
+    selectedItem.classList.add('selected_item');
+  }
+
+  dropSelectedClass(){
+    let deselectedElements = document.getElementsByClassName('setting');
+
+    for(let i=0 ; i <deselectedElements.length; i++ ){
+
+      deselectedElements[i]?.classList.remove('selected_item');
     }
   }
 
